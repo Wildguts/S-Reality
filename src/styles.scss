@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/sass/style.scss";
+// Replace above style with this css file to enable RTL styles
+// @import "./assets/css/style.rtl";
+@import './assets/sass/plugins.scss';
+// @import "./assets/css/style.rtl.css";
+@import "./assets/sass/style.angular.scss";
+
+// Keenicons - High quality and pixel perfect font icons available in 3 styles, duotone, outline and solid for Metronic elements
+@import "./assets/plugins/keenicons/duotone/style.css";
+@import "./assets/plugins/keenicons/outline/style.css";
+@import "./assets/plugins/keenicons/solid/style.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+point.visible, label {
+  transform: scale(1, 1);
+}
+
+point, label {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 20px;
+  height: 20px;
+  background: #00000077;
+  color: #ffffff;
+  border-radius: 50%;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  line-height: 20px;
+  font-weight: 100;
+  font-size: 14px;
+  cursor: grab;
+  transform: scale(0, 0);
+  transition: transform 0.3s;
+}
+
+point, text {
+  position: absolute;
+  top: 30px;
+  left: -120px;
+  width: 150px;
+  border-radius: 4px;
+  background: #00000077;
+  color: #ffffff;
+  line-height: 1.3em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+point:hover, text {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
