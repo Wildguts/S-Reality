@@ -1,18 +1,19 @@
 <!-- begin::Row -->
-<div  class="row  d-flex flex-nowrap align-items-start " id="card-container-horizental-before-1"></div>
+<div class="  flex-column">
+<div  class="row   flex-nowrap  " id="card-container-horizental-before-1"></div>
 
-<div class="row  d-flex flex-nowrap ">
+<div class="row d-flex  flex-nowrap ">
 
   <div class="col-8">
-    <div   id = "card-1" >
+    <div class="container"  id = "card-1" >
       <div class=" d-flex justify-content-center  ">
-    <button #upButton  id="center-button-up-1" (click)="duplicateCard('up', upButton.id)">
+    <button #upButton  id="centerbutton-up-1" (click)="duplicateCard('up', upButton.id)">
       <app-keenicon name="arrow-up" class="fs-1"></app-keenicon>
     </button>
   </div>
 <div class="row align-items-center ms-20 ">
   <div class="col ">
-    <button #leftButton id="center-button-left-1" (click)="duplicateCard('left' , leftButton.id)">
+    <button #leftButton id="centerbutton-left-1" (click)="duplicateCard('left' , leftButton.id)">
       <app-keenicon name="arrow-left" class="fs-1"></app-keenicon>
     </button>
   </div>
@@ -21,25 +22,24 @@
     </app-imageimport>
   </div>
   <div class="col">
-    <button #rightButton  id="center-button-right-1" (click)="duplicateCard('right' , rightButton.id)">
+    <button #rightButton  id="centerbutton-right-1" (click)="duplicateCard('right' , rightButton.id)">
       <app-keenicon name="arrow-right" class="fs-1"></app-keenicon>
     </button>
   </div>
   </div>
 
   <div class="d-flex justify-content-center">
-  <button #downButton  id="center-button-down-1" (click)="duplicateCard('down' , downButton.id)">
+  <button #downButton  id="centerbutton-down-1" (click)="duplicateCard('down' , downButton.id)">
     <app-keenicon name="arrow-down" class="fs-1"></app-keenicon>
   </button>
   </div>
 </div>
 </div>
-<div  id="card-container-lateral-after-1"></div>
-<div  class="" id="card-container-lateral-before-1"></div>
+<div  class="d-none" id="card-container-lateral-after-1"></div>
+<div  class="d-none" id="card-container-lateral-before-1"></div>
 </div>
-<div  class="row col-xl-8" id="card-container-horizental-after-1"></div>
-
-
+<div  class="row flex-nowrap " id="card-container-horizental-after-1"></div>
+</div>
 <!-- end::Row -->
 <!--
 <!-- begin::Row

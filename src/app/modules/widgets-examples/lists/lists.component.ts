@@ -26,10 +26,10 @@ export class ListsComponent {
     if (numericPart) {
       this.id = String(parseInt(numericPart[0], 10));
       this.elementName = 'card-' + this.id
-      this.buttonupName = 'center-button-up-' + this.id
-      this.buttondownName = 'center-button-down-' + this.id
-      this.buttonleftName ='center-button-left-' + this.id
-      this.buttonrightName = 'center-button-right-' + this.id
+      this.buttonupName = 'centerbutton-up-' + this.id
+      this.buttondownName = 'centerbutton-down-' + this.id
+      this.buttonleftName ='centerbutton-left-' + this.id
+      this.buttonrightName = 'centerbutton-right-' + this.id
       console.log(this.buttonrightName,this.buttonleftName,this.buttonupName,this.buttondownName)
       console.log(this.elementName)
 
@@ -42,27 +42,25 @@ export class ListsComponent {
     const cardContainerHorizentalAfter = document.getElementById(this.horizentalafter);
     const cardContainerLateralAfter = document.getElementById(this.lateralAfter);
     const templateCard = document.getElementById(this.elementName);
-    const templatebuttonup = document.getElementById(this.buttonupName);
-    const templatebuttondown = document.getElementById(this.buttondownName);
-    const templatebuttonleft = document.getElementById(this.buttonleftName);
-    const templatebuttonright = document.getElementById(this.buttonrightName);
-    console.log(cardContainerLateralAfter,cardContainerHorizentalAfter,cardContainerLateralBefore,cardContainerHorizentalBefore)
+/*
+    console.log(cardContainerLateralAfter,cardContainerHorizentalAfter,cardContainerLateralBefore,cardContainerHorizentalBefore) */
    if ( templateCard) {
      // Clone the template card
      const clonedCard = templateCard.cloneNode(true) as HTMLElement;
 
-     this.newCardId = this.newCardId + 1;
-     const buttonIds = ['center-button-left-' + String(this.newCardId), 'center-button-right-' +  String(this.newCardId), 'center-button-down-' +  String(this.newCardId), 'center-button-up-'+  String(this.newCardId)];
+     this.newCardId = parseInt(this.id) + 1;
+     console.log(this.newCardId)
+     const buttonIds = ["#centerbutton-left-" + String(this.newCardId),"#centerbutton-right-" + String(this.newCardId),"#centerbutton-down-" + String(this.newCardId),"#centerbutton-up-" + String(this.newCardId)];
      clonedCard.setAttribute('id', `card-${this.newCardId}`);
-
-
+      console.log(clonedCard)
              if((direction === 'up' ) && cardContainerHorizentalBefore){
-               clonedCard.setAttribute('class', `col-8  `);
+               clonedCard.setAttribute('class', `col-8   `);
                cardContainerHorizentalBefore.append(clonedCard);
 
 
            }
            if((direction === "down")&& (cardContainerHorizentalAfter)){
+             clonedCard.setAttribute('class', `col-8  `);
              cardContainerHorizentalAfter.append(clonedCard);
 
 
@@ -76,17 +74,21 @@ export class ListsComponent {
                cardContainerLateralAfter.append(clonedCard);
 
              }
-             console.log('buttonids',buttonIds)
+/*              console.log('buttonids',buttonIds) */
              for (const ids of buttonIds) {
                console.log('ids',ids)
                  const elementsWithId = document.querySelectorAll(ids);
                  const elementArray = Array.from(elementsWithId);
-                 console.log('elementsWithId',elementsWithId)
-                 console.log('elementArray',elementArray)
+/*                  console.log('elementsWithId',elementsWithId)
+                 console.log('elementArray',elementArray) */
                  // Alternatively: const elementArray = [...elementsWithId];
 
                  for (const element of elementArray) {
-                     element.addEventListener('click', () => this.duplicateCard(ids.slice('#center-button-'.length - String(this.newCardId).length), ids) );
+                   const buttonName = ids.slice( 1 ,  ids.lastIndexOf('-'))
+                     element.setAttribute('id', `${buttonName}-${this.newCardId}`)
+                     element.addEventListener('click', () => this.duplicateCard(ids.slice(ids.indexOf('-') + 1 , ids.lastIndexOf('-')), `${buttonName}-${this.newCardId}`));
+                     console.log(buttonName)
+                     console.log(element)
                  }
              }
            }
