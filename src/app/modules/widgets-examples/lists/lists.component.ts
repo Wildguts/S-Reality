@@ -69,11 +69,10 @@ export class ListsComponent {
            }
              if((direction === "left")&& (cardContainerLateralBefore)){
               cardContainerLateralBefore.setAttribute('class', `order-first col-8  `);
-               cardContainerLateralBefore.append(clonedCard);
-
-
+              cardContainerLateralBefore.append(clonedCard);
              }
              if((direction === "right")&& (cardContainerLateralAfter)){
+              cardContainerLateralAfter.setAttribute('class', ` order-last col-8  `);
                cardContainerLateralAfter.append(clonedCard);
 
              }
